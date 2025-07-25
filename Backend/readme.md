@@ -233,7 +233,7 @@ curl -X GET http://localhost:PORT/users/logout \
   -H "Authorization: Bearer <jwt_token>"
 ```
 
-## POST `/captain/register`
+## POST `/captains/register`
 
 ### Description
 
