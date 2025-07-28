@@ -6,9 +6,9 @@ const cookieParser = require("cookie-parser");
 const connectToDb = require("./db/db");
 const userRoute = require("./routes/user.routes");
 const captainRoute = require("./routes/captain.routes");
-connectToDb();
 
 const app = express();
+connectToDb();
 
 app.use(cors());
 app.use(express.json());
