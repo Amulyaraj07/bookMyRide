@@ -13,7 +13,7 @@ const CaptainSignup = () => {
   const [ vehicleCapacity, setVehicleCapacity ] = useState('')
   const [ vehicleType, setVehicleType ] = useState('')
 
-    const [ captain, setCaptain ] = useState({})
+  const [ captain, setCaptain ] = useState({})
 
 
   const submitHandler = async (e) => {

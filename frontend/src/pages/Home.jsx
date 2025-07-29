@@ -1,19 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Logo from "../assets/bmrlogo.png";
 
 
 
 const Home = () => {
   return (
     <div>
-      <div className='bg-cover bg-center bg-[url(https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] h-screen pt-8 flex justify-between flex-col w-full'>
-        <img className='w-20 ml-5' src={Logo} alt="" />
-        <div className='bg-white pb-8 py-4 px-4'>
-          <h2 className='text-[30px] font-semibold'>Get Started with BMR</h2>
-          <Link to='/login' className='flex items-center justify-center w-full bg-black text-white py-3 rounded-lg mt-5'>Continue</Link>
-        </div>
-      </div>
+      <h1>Home</h1>
     </div>
   )
 }
