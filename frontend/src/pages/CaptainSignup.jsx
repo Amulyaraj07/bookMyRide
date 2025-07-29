@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../assets/bmrlight.png'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { CaptainDataContext } from '../context/CaptainContext'
+import { useContext } from 'react'
+
 
 const CaptainSignup = () => {
   const [ email, setEmail ] = useState('')
@@ -10,10 +15,13 @@ const CaptainSignup = () => {
 
   const [ vehicleColor, setVehicleColor ] = useState('')
   const [ vehiclePlate, setVehiclePlate ] = useState('')
-  const [ vehicleCapacity, setVehicleCapacity ] = useState('')
+  const [ vehicleCapacity, setVehicleCapacity ] = useState(0)
   const [ vehicleType, setVehicleType ] = useState('')
 
-  const [ captain, setCaptain ] = useState({})
+
+  const {captain, setCaptain} = useContext(CaptainDataContext)
+  const navigate = useNavigate()
+
 
 
   const submitHandler = async (e) => {
@@ -28,22 +36,27 @@ const CaptainSignup = () => {
       vehicle: {
         color: vehicleColor,
         plate: vehiclePlate,
-        capacity: vehicleCapacity,
+        capacity:vehicleCapacity,
         vehicleType: vehicleType
       }
     }
 
-    setCaptain(captainData)
-
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/register`, captainData);
+    if(response.status === 201){
+      console.log("Submitting:", captainData)
+      const data = response.data
+      setCaptain(data.captain)
+      localStorage.setItem('token', data.token)
+      navigate('/home')
+    }
     setEmail('')
     setFirstName('')
     setLastName('')
     setPassword('')
     setVehicleColor('')
     setVehiclePlate('')
-    setVehicleCapacity('')
+    setVehicleCapacity(0)
     setVehicleType('')
-
   }
   return (
     <div className='py-5 px-5 h-screen flex flex-col justify-between'>
@@ -147,7 +160,7 @@ const CaptainSignup = () => {
               <option value="" disabled>Select Vehicle Type</option>
               <option value="car">Car</option>
               <option value="auto">Auto</option>
-              <option value="moto">Moto</option>
+              <option value="motorcycle">Moto</option>
             </select>
           </div>
 
