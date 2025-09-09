@@ -24,6 +24,7 @@ const UserLogin = () => {
     }
 
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, userData);
+    console.log(response);
 
     if(response.status === 200){
       const data = response.data
