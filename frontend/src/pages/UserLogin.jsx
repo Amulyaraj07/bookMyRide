@@ -22,8 +22,9 @@ const UserLogin = () => {
       email: email,
       password: password
     }
+    const BASE_URL="https://bookmyride-7ufl.onrender.com";
 
-    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, userData);
+    const response = await axios.post(`${BASE_URL}/users/login`, userData);
     console.log(response);
 
     if(response.status === 200){
