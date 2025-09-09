@@ -19,8 +19,8 @@ const CaptainLogin = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const captainData={
-      email: email,
-      password: password
+      email,
+      password
     }
 
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/login`, captainData);

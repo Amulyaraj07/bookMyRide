@@ -27,7 +27,6 @@ const CaptainProtectWrapper = ({children}) => {
                 setIsLoading(false)
             }
         }).catch((error) => {
-            console.error("Error fetching captain profile:", error)
             localStorage.removeItem('token')
             navigate('/captain-login')
         })
@@ -36,8 +35,6 @@ const CaptainProtectWrapper = ({children}) => {
     if (isLoading) {
         return <div>Loading...</div>
     }
-
-
   return (
     <>
       {children}

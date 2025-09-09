@@ -8,6 +8,10 @@ import { useContext } from 'react'
 
 
 const CaptainSignup = () => {
+
+  const navigate = useNavigate()
+
+
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ firstName, setFirstName ] = useState('')
@@ -20,7 +24,7 @@ const CaptainSignup = () => {
 
 
   const {captain, setCaptain} = useContext(CaptainDataContext)
-  const navigate = useNavigate()
+  
 
 
 
@@ -43,11 +47,10 @@ const CaptainSignup = () => {
 
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/register`, captainData);
     if(response.status === 201){
-      console.log("Submitting:", captainData)
       const data = response.data
       setCaptain(data.captain)
       localStorage.setItem('token', data.token)
-      navigate('/home')
+      navigate('/captain-home')
     }
     setEmail('')
     setFirstName('')

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { Routes,Route } from 'react-router-dom'
 import Home from './pages/Home'
 import UserSignup from './pages/UserSignup'
@@ -11,6 +11,9 @@ import CaptainHome from './pages/CaptainHome'
 import UserLogout from './pages/UserLogout'
 import CaptainLogout from './pages/CaptainLogout'
 import CaptainProtectWrapper from './pages/CaptainProtectWrapper'
+import Riding from './pages/Riding'
+import CaptainRiding from './pages/CaptainRiding'
+import 'remixicon/fonts/remixicon.css'
 
 
 const App = () => {
@@ -19,6 +22,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Start/>} />
         <Route path="/signup" element={<UserSignup/>} />
+        <Route path="/riding" element={<Riding/>} />
         <Route path="/login" element={<UserLogin/>} />
         <Route path="/home" element={<UserProtectWrapper>
           <Home/>
@@ -36,6 +40,7 @@ const App = () => {
         <Route path='/captain/logout' element={<CaptainProtectWrapper>
           <CaptainLogout/>
         </CaptainProtectWrapper>}/>
+        <Route path='/captain/riding' element={<CaptainRiding/>}/>
       </Routes>
     </div>
   )

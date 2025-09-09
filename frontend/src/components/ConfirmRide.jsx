@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ConfirmedRide = (props) => {
+const ConfirmRide = (props) => {
     return (
         <div>
             <h5 className='p-1 text-center w-[93%] absolute top-0' onClick={() => {
@@ -44,4 +44,4 @@ const ConfirmedRide = (props) => {
     )
 }
 
-export default ConfirmedRide
+export default ConfirmRide
