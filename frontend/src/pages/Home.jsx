@@ -17,6 +17,7 @@ import { UserDataContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
 import Logo from '../assets/bmrlight.png';
+import { BASE_URL } from '../api';
 
 const Home = () => {
     const [pickup, setPickup] = useState('');
@@ -75,7 +76,7 @@ const Home = () => {
         }
 
         try {
-            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/maps/get-suggestions`, {
+            const response = await axios.get(`${BASE_URL}/maps/get-suggestions`, {
                 params: { input },
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -97,7 +98,7 @@ const Home = () => {
         }
 
         try {
-            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/maps/get-suggestions`, {
+            const response = await axios.get(`${BASE_URL}/maps/get-suggestions`, {
                 params: { input },
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -152,7 +153,7 @@ const Home = () => {
         setPanelOpen(false);
 
         try {
-            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/rides/get-fare`, {
+            const response = await axios.get(`${BASE_URL}/rides/get-fare`, {
                 params: { pickup, destination },
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -166,7 +167,7 @@ const Home = () => {
 
     const createRide = async () => {
         try {
-            await axios.post(`${import.meta.env.VITE_BASE_URL}/rides/create`, {
+            await axios.post(`${BASE_URL}/rides/create`, {
                 pickup,
                 destination,
                 vehicleType

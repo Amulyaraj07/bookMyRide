@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { CaptainDataContext } from '../context/CaptainContext'
 import { useContext } from 'react'
+import { BASE_URL } from '../api';
 
 const CaptainLogin = () => {
 
@@ -23,7 +24,7 @@ const CaptainLogin = () => {
       password
     }
 
-    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/login`, captainData);
+    const response = await axios.post(`${BASE_URL}/captains/login`, captainData);
 
     if(response.status === 200){
       const data = response.data

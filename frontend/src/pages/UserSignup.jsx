@@ -4,6 +4,7 @@ import Logo from '../assets/bmrlight.png'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { UserDataContext } from '../context/UserContext'
+import { BASE_URL } from '../api';
 
 const UserSignup = () => {
   const [ email, setEmail ] = useState('')
@@ -28,7 +29,7 @@ const UserSignup = () => {
       password: password
     }
 
-    const response =await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`,newUser);
+    const response =await axios.post(`${BASE_URL}/users/register`,newUser);
 
     if(response.status ===201){
       const data = response.data

@@ -11,6 +11,7 @@ import { CaptainDataContext } from '../context/CaptainContext'
 import axios from 'axios'
 import Logo from '../assets/bmrlight.png'
 import LiveTracking from '../components/LiveTracking'
+import { BASE_URL } from '../api';
 const CaptainHome = () => {
 
     const [ ridePopupPanel, setRidePopupPanel ] = useState(false)
@@ -57,7 +58,7 @@ const CaptainHome = () => {
 
     async function confirmRide() {
 
-        const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/rides/confirm`, {
+        const response = await axios.post(`${BASE_URL}/rides/confirm`, {
 
             rideId: ride._id,
             captainId: captain._id,
